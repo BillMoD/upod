@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, -30px, 0);
+  }
+}
+
+.tooth-tooltip {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@keyframes tagFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tooth-tag {
+  animation: tagFadeIn 0.2s ease-out forwards;
+  pointer-events: auto;
+  will-change: transform, opacity;
+  z-index: 100;
+  will-change: transform;
+  
+}
+
+.tooth-tag.expanded {
+  z-index: 100;
+}
+
+.tooth-tag.selected {
+  z-index: 9999;
+  position: fixed !important;
+  right:  0px !important;
+  bottom:  100% !important;
+  transform: translateY(-50%) !important;
+  max-width: min(640px, calc(100vw - 96px)) !important;
+  pointer-events: auto !important;
+  transform-origin: left center !important;
+  position: fixed !important;
+  transform: translateY(-50%) !important;
+  max-width: min(420px, calc(100vw - 64px)) !important;
+  pointer-events: auto !important;
+  transform-origin: left center !important;
+}
+
+.tooth-tag.transitioning {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed !important;
+  left: 32px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  max-width: min(420px, calc(100vw - 64px)) !important;
+  pointer-events: auto !important;
+  transform-origin: left center !important;
+}
+
+.tooth-tag.hovered {
+  z-index: 101;
+  transform: scale(1);
+  transition: transform 0.2s ease-out;
+  transform: scale(1.02);
+  transform: scale(1.02);
+ 
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideIn > * {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out forwards;
+  will-change: transform, opacity;
+}
